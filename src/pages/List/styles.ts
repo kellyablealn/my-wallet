@@ -16,6 +16,7 @@ export const Filters = styled.div`
         background: none;
         color: ${props => props.theme.colors.white};
 
+        opacity: .4;
         margin: 0 10px;
         transition: opacity .3s;
 
@@ -29,7 +30,7 @@ export const Filters = styled.div`
         display: block;
         width: 55px;
         margin: 0 auto;
-        border-bottom: 10px solid ${props => props.theme.colors.warning};
+        border-bottom: 10px solid ${props => props.theme.colors.success};
     }
 
     .tag-filter-eventual::after {
@@ -37,6 +38,10 @@ export const Filters = styled.div`
         display: block;
         width: 55px;
         margin: 0 auto;
-        border-bottom: 10px solid ${props => props.theme.colors.success};
+        border-bottom: 10px solid ${props => props.theme.colors.warning};
+    }
+
+    .tag-actived {
+        opacity: 1;
     }
 `;
