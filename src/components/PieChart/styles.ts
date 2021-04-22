@@ -13,6 +13,8 @@ export const Container = styled.div`
 
     border-radius: 7px;
     display: flex;
+
+    margin: 10px 0;
 `;
 
 export const SideLeft = styled.aside`
