@@ -8,8 +8,11 @@ import {
     MdClose
 } from 'react-icons/md';
 
+import Toggle from '../Toggle';
+
 import logoImg from '../../assets/logo.svg';
 
+import {useTheme} from '../../hooks/theme';
 import {useAuth} from '../../hooks/auth';
 
 import { 
@@ -20,15 +23,24 @@ import {
     MenuContainer, 
     MenuItemLink,
     MenuItemButton,
-    ToggleMenu
+    ToggleMenu,
+    ThemeToggleFooter
 } from './styles';
 
 const Aside: React.FC = () => {
-    const [toggleMenuIsOpened, setToggleMenuIsOpened] = useState(true);
     const {signOut} = useAuth();
+    const {toggleTheme, theme} = useTheme();
+
+    const [toggleMenuIsOpened, setToggleMenuIsOpened] = useState(true);
+    const [darkTheme, setDarkTheme] = useState(()=> theme.title === 'dark' ? true : false);
 
     const handleToggleMenu = () => {
         setToggleMenuIsOpened(!toggleMenuIsOpened);
+    }
+
+    const handleChangeTheme = () => {
+        setDarkTheme(!darkTheme);
+        toggleTheme();
     }
 
     return (
@@ -54,6 +66,14 @@ const Aside: React.FC = () => {
                     <MdExitToApp /> Sair
                 </MenuItemButton>
             </MenuContainer>
+            <ThemeToggleFooter menuIsOpen={toggleMenuIsOpened}>
+                <Toggle 
+                    labelRight='Dark' 
+                    labelLeft='Light' 
+                    checked={darkTheme}
+                    onChange={handleChangeTheme}
+                />
+            </ThemeToggleFooter>
         </Container>
     );
 }

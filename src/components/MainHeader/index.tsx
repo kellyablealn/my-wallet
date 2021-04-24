@@ -1,10 +1,11 @@
 import React, {useMemo, useState} from 'react';
+import Toggle from '../Toggle';
+
 import { 
     Container, 
     Profile, 
     Welcome, 
-    UserName,
-    Toggle
+    UserName
 } from './styles';
 
 import {emojis} from '../../utils/emojis';
